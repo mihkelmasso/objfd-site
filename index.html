@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -46,14 +47,24 @@ header nav a{
 
 header nav a:hover{opacity:1}
 
-/* DROPDOWN */
+/* DROPDOWN FIXED */
 .dropdown{
   position:relative;
+  padding-bottom:10px;
+}
+
+.dropdown::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:100%;
+  height:10px;
 }
 
 .dropdown-menu{
   position:absolute;
-  top:30px;
+  top:100%;
   left:0;
   background:#fff;
   padding:10px 0;
@@ -62,7 +73,7 @@ header nav a:hover{opacity:1}
   opacity:0;
   pointer-events:none;
   transform:translateY(10px);
-  transition:0.25s ease;
+  transition:0.2s ease;
 }
 
 .dropdown-menu a{
@@ -267,134 +278,139 @@ footer{
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <strong>OBJFD</strong>
-  <nav>
+<strong>OBJFD</strong>
+<nav>
 
-    <div class="dropdown">
-      <a href="#work">Work</a>
-      <div class="dropdown-menu">
-        <a href="#huum">HUUM Heater</a>
-        <a href="#processing">Wood Processing</a>
-        <a href="#lamp">Desk Lamp</a>
-      </div>
-    </div>
+<div class="dropdown">
+  <a href="#work">Work</a>
+  <div class="dropdown-menu">
+    <a href="#huum">HUUM Heater</a>
+    <a href="#processing">Wood Processing</a>
+    <a href="#lamp">Desk Lamp</a>
+  </div>
+</div>
 
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<a href="#services">Services</a> <a href="#about">About</a> <a href="#contact">Contact</a>
+
+</nav>
 </header>
 
 <!-- HERO -->
+
 <section class="hero">
-  <div class="hero-inner">
-    <h1>We design products people enjoy using</h1>
-    <p>
-      OBJFD is an AI-empowered product design bureau working in close collaboration with human expertise. 
-      We design from real human needs, grounded in practical experience and informed by manufacturing realities — 
-      creating thoughtful, user-focused solutions.
-    </p>
-    <div class="hero-sub">AI-assisted. Human-led.</div>
-  </div>
+<div class="hero-inner">
+<h1>We design products people enjoy using</h1>
+<p>
+OBJFD is an AI-empowered product design bureau working in close collaboration with human expertise. 
+We design from real human needs, grounded in practical experience and informed by manufacturing realities — 
+creating thoughtful, user-focused solutions.
+</p>
+<div class="hero-sub">AI-assisted. Human-led.</div>
+</div>
 </section>
 
 <!-- WORK -->
+
 <section id="work">
-  <div class="work">
+<div class="work">
 
-    <!-- HUUM -->
-    <div id="huum" class="project fade">
-      <div class="project-gallery">
-        <img src="images/project-huum/MM_Huum_1.jpg">
-        <img src="images/project-huum/huum-11.jpg">
-        <img src="images/project-huum/huum-12.jpg">
-      </div>
-      <div class="project-info">
-        <h3>HUUM Heater</h3>
-        <p>Electric sauna heater built around exposed stone mass and minimal structure.</p>
-      </div>
-    </div>
+<div id="huum" class="project fade">
+<div class="project-gallery">
+<img src="images/project-huum/MM_Huum_1.jpg">
+<img src="images/project-huum/huum-11.jpg">
+<img src="images/project-huum/huum-12.jpg">
+</div>
+<div class="project-info">
+<h3>HUUM Heater</h3>
+<p>Electric sauna heater built around exposed stone mass.</p>
+</div>
+</div>
 
-    <!-- PROCESS -->
-    <div id="processing" class="project fade">
-      <div class="project-gallery">
-        <img src="images/project-processing/_DSC4518.jpg">
-        <img src="images/project-processing/_DSC4522.jpg">
-        <img src="images/project-processing/_DSC4524.jpg">
-      </div>
-      <div class="project-info">
-        <h3>Wood Processing</h3>
-        <p>Material exploration and fabrication workflow.</p>
-      </div>
-    </div>
+<div id="processing" class="project fade">
+<div class="project-gallery">
+<img src="images/project-processing/_DSC4518.jpg">
+<img src="images/project-processing/_DSC4522.jpg">
+<img src="images/project-processing/_DSC4524.jpg">
+</div>
+<div class="project-info">
+<h3>Wood Processing</h3>
+<p>Material exploration and fabrication workflow.</p>
+</div>
+</div>
 
-    <!-- LAMP -->
-    <div id="lamp" class="project fade">
-      <div class="project-gallery">
-        <img src="images/project-lamp/desk-lamp-1.jpg">
-        <img src="images/project-lamp/desk-lamp-3-01.jpg">
-      </div>
-      <div class="project-info">
-        <h3>Desk Lamp</h3>
-        <p>Minimal folded geometry shaping directional light.</p>
-      </div>
-    </div>
+<div id="lamp" class="project fade">
+<div class="project-gallery">
+<img src="images/project-lamp/desk-lamp-1.jpg">
+<img src="images/project-lamp/desk-lamp-3-01.jpg">
+</div>
+<div class="project-info">
+<h3>Desk Lamp</h3>
+<p>Minimal folded geometry shaping directional light.</p>
+</div>
+</div>
 
-  </div>
+</div>
 </section>
 
 <!-- SERVICES -->
+
 <section id="services">
-  <div class="services">
-    <div class="service fade">
-      <h3>Product Design</h3>
-      <p>Concept, form, and engineering-aware decisions.</p>
-    </div>
-    <div class="service fade">
-      <h3>3D & CAD</h3>
-      <p>Models ready for development and production.</p>
-    </div>
-    <div class="service fade">
-      <h3>Prototyping</h3>
-      <p>Fast iteration through physical and digital builds.</p>
-    </div>
-  </div>
+<div class="services">
+
+<div class="service fade">
+<h3>Product Design</h3>
+<p>Concept, form, and engineering-aware decisions.</p>
+</div>
+
+<div class="service fade">
+<h3>3D & CAD</h3>
+<p>Models ready for production.</p>
+</div>
+
+<div class="service fade">
+<h3>Prototyping</h3>
+<p>Fast iteration through physical builds.</p>
+</div>
+
+</div>
 </section>
 
 <!-- ABOUT -->
+
 <section id="about">
-  <div class="about fade">
-    OBJFD is an independent design bureau focused on clarity, function, and buildability. 
-    Work is done directly and deliberately — grounded in real use and real constraints.
-  </div>
+<div class="about fade">
+OBJFD is an independent design bureau focused on clarity, function, and buildability — grounded in real use and constraints.
+</div>
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact">
-  <form class="fade" onsubmit="event.preventDefault()">
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Project description" rows="5" required></textarea>
-    <button>Send</button>
-  </form>
+<form class="fade">
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Project description"></textarea>
+<button>Send</button>
+</form>
 </section>
 
 <footer>
-  © 2026 OBJFD
+© 2026 OBJFD
 </footer>
 
 <script>
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+});
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.fade').forEach(el => observer.observe(el));
