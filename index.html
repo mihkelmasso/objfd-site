@@ -44,12 +44,11 @@ nav a{
   text-decoration:none;
   color:#666;
   font-size:15px;
-  transition:0.2s;
 }
 
 nav a:hover{color:#000}
 
-/* DROPDOWN FIX */
+/* DROPDOWN */
 .work{
   position:relative;
   padding-bottom:12px;
@@ -75,7 +74,7 @@ nav a:hover{color:#000}
   opacity:0;
   pointer-events:none;
   transform:translateY(8px);
-  transition:0.25s ease;
+  transition:0.25s;
   box-shadow:0 20px 60px rgba(0,0,0,0.08);
 }
 
@@ -99,8 +98,8 @@ nav a:hover{color:#000}
   position:absolute;
   width:100%;
   height:100%;
-  background:url("images/hero/hero.jpg") center/cover no-repeat;
-  filter:brightness(0.85);
+  background:url("images/project-huum/huum-1.jpg") center/cover no-repeat;
+  filter:brightness(0.75);
 }
 
 .hero-content{
@@ -113,7 +112,7 @@ nav a:hover{color:#000}
   font-weight:500;
 }
 
-/* PROJECTS (APPLE GRID) */
+/* PROJECT GRID */
 .projects{
   padding:120px 40px;
   column-count:2;
@@ -132,7 +131,7 @@ nav a:hover{color:#000}
 .project img{
   width:100%;
   display:block;
-  transition:0.6s;
+  transition:0.5s;
 }
 
 .project:hover img{
@@ -145,12 +144,10 @@ nav a:hover{color:#000}
 
 .project-title{
   font-weight:600;
-  font-size:18px;
 }
 
 .project-desc{
   color:#666;
-  margin-top:6px;
 }
 
 /* ABOUT */
@@ -159,19 +156,9 @@ nav a:hover{color:#000}
   max-width:800px;
 }
 
-.about h2{
-  font-size:28px;
-  margin-bottom:20px;
-}
-
 /* CONTACT */
 footer{
   padding:100px 40px;
-}
-
-footer h2{
-  font-size:28px;
-  margin-bottom:40px;
 }
 
 input, textarea{
@@ -180,18 +167,12 @@ input, textarea{
   border-bottom:1px solid #ddd;
   padding:14px 0;
   margin-bottom:24px;
-  font-size:14px;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width:900px){
-  .projects{
-    column-count:1;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
+  .projects{column-count:1}
+  .hero h1{font-size:36px}
 }
 </style>
 </head>
@@ -231,7 +212,7 @@ input, textarea{
 
   <!-- HUUM -->
   <div class="project">
-    <img src="images/project-huum/huum-5.jpg">
+    <img src="images/project-huum/huum-1.jpg">
     <div class="project-info">
       <div class="project-title">HUUM Heater</div>
       <div class="project-desc">Minimal sauna heater design</div>
@@ -240,14 +221,14 @@ input, textarea{
 
   <!-- LAMP -->
   <div class="project">
-    <img src="images/project-lamp/desk-lamp-1.jpg">
+    <img src="images/project-lamp/desk-lamp-3-01.jpg">
     <div class="project-info">
       <div class="project-title">Desk Lamp</div>
       <div class="project-desc">Folded geometry</div>
     </div>
   </div>
 
-  <!-- CRUTCHES (FIXED ✅) -->
+  <!-- CRUTCHES -->
   <div class="project">
     <img src="images/crutches/c-1.png">
     <div class="project-info">
@@ -287,7 +268,6 @@ input, textarea{
 <!-- CONTACT -->
 <footer id="contact">
   <h2>Start a project</h2>
-
   <input placeholder="Name">
   <input placeholder="Email">
   <textarea placeholder="Project description"></textarea>
