@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUUM Heater – obvious</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter', sans-serif;
+  color:#111;
+  background:#fff;
+}
+
+/* HEADER */
+
+header{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+  z-index:100;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:800;
+  text-decoration:none;
+  color:#111;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+  text-decoration:none;
+  font-size:14px;
+  color:#111;
+  opacity:0.6;
+}
+
+nav a:hover{opacity:1}
+
+/* HERO */
+
+.hero{
+  height:100vh;
+  background:url('../images/project-huum/MM_Huum_1.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  padding:60px;
+  color:#fff;
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+}
+
+.hero h1{
+  font-size:60px;
+  margin:0;
+}
+
+.hero p{
+  margin-top:10px;
+  color:#ddd;
+}
+
+/* CONTENT */
+
+.section{
+  padding:120px 60px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.text{
+  max-width:700px;
+  font-size:20px;
+  line-height:1.6;
+}
+
+.image{
+  margin:80px 0;
+}
+
+.image img{
+  width:100%;
+  height:80vh;
+  object-fit:cover;
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin-top:80px;
+}
+
+.grid img{
+  width:100%;
+  height:60vh;
+  object-fit:cover;
+}
+
+/* FOOTER */
+
+footer{
+  padding:80px 60px;
+  color:#999;
+  font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+  .hero h1{font-size:36px}
+  .grid{grid-template-columns:1fr}
+  .image img{height:50vh}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="../index.html" class="logo">obvious</a>
+
+  <nav>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>HUUM Heater</h1>
+    <p>Electric sauna heater built around exposed stone mass</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+
+<section class="section">
+  <div class="text">
+    The HUUM heater explores a stripped-back approach to sauna design, where structure is minimized and the stone becomes the dominant visual and functional element.
+    <br><br>
+    The design is grounded in real manufacturing constraints and user experience — balancing aesthetics, durability, and heat performance.
+  </div>
+</section>
+
+<!-- FULL IMAGE -->
+
+<section class="image">
+  <img src="../images/project-huum/huum-11.jpg">
+</section>
+
+<!-- GRID -->
+
+<section class="section">
+  <div class="grid">
+    <img src="../images/project-huum/huum-4.jpg">
+    <img src="../images/project-huum/huum-5.jpg">
+  </div>
+</section>
+
+<!-- MORE TEXT -->
+
+<section class="section">
+  <div class="text">
+    The open structure allows airflow and heat distribution while showcasing the natural texture of the stones. The minimal frame reduces visual noise and emphasizes material honesty.
+  </div>
+</section>
+
+<!-- FINAL IMAGE -->
+
+<section class="image">
+  <img src="../images/project-huum/huum-12.jpg">
+</section>
+
+<footer>
+  © 2026 obvious
+</footer>
+
+</body>
+</html>
