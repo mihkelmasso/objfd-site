@@ -44,6 +44,7 @@ nav a{
   text-decoration:none;
   color:#666;
   font-size:15px;
+  transition:0.2s;
 }
 
 nav a:hover{color:#000}
@@ -74,11 +75,12 @@ nav a:hover{color:#000}
   opacity:0;
   pointer-events:none;
   transform:translateY(8px);
-  transition:0.25s;
+  transition:0.25s cubic-bezier(.2,.6,.2,1);
   box-shadow:0 20px 60px rgba(0,0,0,0.08);
 }
 
-.work:hover .dropdown{
+.work:hover .dropdown,
+.work:focus-within .dropdown{
   opacity:1;
   pointer-events:auto;
   transform:translateY(0);
@@ -92,6 +94,7 @@ nav a:hover{color:#000}
   align-items:center;
   justify-content:center;
   color:#fff;
+  overflow:hidden;
 }
 
 .hero-bg{
@@ -105,14 +108,42 @@ nav a:hover{color:#000}
 .hero-content{
   position:relative;
   text-align:center;
+  max-width:900px;
+  padding:0 20px;
 }
 
 .hero h1{
   font-size:64px;
   font-weight:500;
+  line-height:1.1;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1.2s ease forwards;
 }
 
-/* PROJECT GRID */
+.hero h2{
+  margin-top:20px;
+  font-size:20px;
+  font-weight:400;
+  opacity:0.9;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1.2s ease forwards;
+  animation-delay:0.2s;
+}
+
+.hero p{
+  margin-top:30px;
+  font-size:14px;
+  color:#ddd;
+  line-height:1.6;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1.2s ease forwards;
+  animation-delay:0.4s;
+}
+
+/* PROJECTS */
 .projects{
   padding:120px 40px;
   column-count:2;
@@ -122,20 +153,24 @@ nav a:hover{color:#000}
 .project{
   break-inside:avoid;
   margin-bottom:60px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s cubic-bezier(.2,.6,.2,1);
 }
 
-.project:nth-child(3n){
-  transform:translateY(40px);
+.project.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .project img{
   width:100%;
   display:block;
-  transition:0.5s;
+  transition:transform 0.7s cubic-bezier(.2,.6,.2,1);
 }
 
 .project:hover img{
-  transform:scale(1.04);
+  transform:scale(1.05);
 }
 
 .project-info{
@@ -144,21 +179,36 @@ nav a:hover{color:#000}
 
 .project-title{
   font-weight:600;
+  font-size:18px;
 }
 
 .project-desc{
   color:#666;
+  margin-top:6px;
 }
 
 /* ABOUT */
 .about{
   padding:140px 40px;
   max-width:800px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.about.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* CONTACT */
 footer{
   padding:100px 40px;
+}
+
+footer h2{
+  font-size:28px;
+  margin-bottom:40px;
 }
 
 input, textarea{
@@ -167,6 +217,14 @@ input, textarea{
   border-bottom:1px solid #ddd;
   padding:14px 0;
   margin-bottom:24px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 /* MOBILE */
@@ -204,54 +262,49 @@ input, textarea{
   <div class="hero-bg"></div>
   <div class="hero-content">
     <h1>Design reduced to its essence</h1>
+    <h2>Product design focused on clarity, function and form.</h2>
+    <p>
+      OBJFD is an AI-empowered product design bureau working in close collaboration with human expertise.<br>
+      We design from real human needs, grounded in practical experience and informed by manufacturing realities.
+    </p>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section class="projects">
 
-  <!-- HUUM -->
   <div class="project">
     <img src="images/project-huum/huum-1.jpg">
     <div class="project-info">
       <div class="project-title">HUUM Heater</div>
-      <div class="project-desc">Minimal sauna heater design</div>
     </div>
   </div>
 
-  <!-- LAMP -->
   <div class="project">
     <img src="images/project-lamp/desk-lamp-3-01.jpg">
     <div class="project-info">
       <div class="project-title">Desk Lamp</div>
-      <div class="project-desc">Folded geometry</div>
     </div>
   </div>
 
-  <!-- CRUTCHES -->
   <div class="project">
     <img src="images/crutches/c-1.png">
     <div class="project-info">
       <div class="project-title">Crutches</div>
-      <div class="project-desc">Mobility design</div>
     </div>
   </div>
 
-  <!-- EMPYREAN -->
   <div class="project">
     <img src="images/empyrean/e-1.png">
     <div class="project-info">
       <div class="project-title">Empyrean</div>
-      <div class="project-desc">Concept exploration</div>
     </div>
   </div>
 
-  <!-- EYS -->
   <div class="project">
     <img src="images/eys/eys-1.png">
     <div class="project-info">
       <div class="project-title">Eys</div>
-      <div class="project-desc">Material study</div>
     </div>
   </div>
 
@@ -272,6 +325,20 @@ input, textarea{
   <input placeholder="Email">
   <textarea placeholder="Project description"></textarea>
 </footer>
+
+<script>
+const elements = document.querySelectorAll('.project, .about');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+}, {threshold:0.2});
+
+elements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
