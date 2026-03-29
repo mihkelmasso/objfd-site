@@ -56,7 +56,6 @@ nav a:hover{color:#000}
   padding-bottom:10px;
 }
 
-/* invisible bridge */
 .work::after{
   content:"";
   position:absolute;
@@ -242,6 +241,7 @@ button:hover{
 <header>
   <div class="logo">OBVIOUS</div>
 
+  <!-- ✅ FIXED NAV (NO "...") -->
   <nav>
     <div class="work">
       <a href="#">Work</a>
@@ -255,6 +255,7 @@ button:hover{
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
+
 </header>
 
 <!-- HERO -->
@@ -322,7 +323,6 @@ button:hover{
 </footer>
 
 <script>
-/* SCROLL REVEAL */
 const elements = document.querySelectorAll('.project, .about');
 
 const observer = new IntersectionObserver(entries => {
