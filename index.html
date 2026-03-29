@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>obvious</title>
+<title>OBVIOUS</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 
@@ -21,12 +21,11 @@ body{
 
 header{
   position:fixed;
-  top:0;
-  left:0;
+  top:0; left:0;
   width:100%;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   padding:20px 60px;
   background:rgba(255,255,255,0.95);
   backdrop-filter:blur(10px);
@@ -46,18 +45,23 @@ nav{
   gap:40px;
 }
 
-.nav-item{
+/* ükski element EI venita */
+.nav-item,
+.nav-link{
   position:relative;
+  display:flex;
+  align-items:center;
 }
 
+/* tekst */
 .nav-item span,
 .nav-link a{
   font-size:14px;
-  text-decoration:none;
   color:#111;
+  text-decoration:none;
   opacity:0.6;
+  transition:0.25s;
   cursor:pointer;
-  transition:0.2s;
 }
 
 .nav-item span:hover,
@@ -69,7 +73,7 @@ nav{
 
 .dropdown{
   position:absolute;
-  top:130%;
+  top:140%;
   left:50%;
   transform:translateX(-50%);
   background:#fff;
@@ -80,6 +84,16 @@ nav{
   opacity:0;
   pointer-events:none;
   transition:0.25s;
+}
+
+/* oluline – hoiab dropdowni lahti */
+.nav-item::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:-20px;
+  right:-20px;
+  height:20px;
 }
 
 .nav-item:hover .dropdown{
@@ -115,13 +129,13 @@ nav{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,0.45);
 }
 
 .hero-inner{
   position:relative;
   z-index:1;
-  max-width:700px;
+  max-width:800px;
 }
 
 .hero h1{
@@ -134,13 +148,11 @@ nav{
   color:#ddd;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= WORK ================= */
 
 section{
   padding:140px 60px;
 }
-
-/* WORK */
 
 .work{
   display:flex;
@@ -167,7 +179,22 @@ section{
   color:#666;
 }
 
-/* CONTACT */
+/* ================= ABOUT TEXT ================= */
+
+.about-block{
+  max-width:700px;
+  margin-bottom:80px;
+  font-size:20px;
+  line-height:1.6;
+  color:#333;
+}
+
+.about-block strong{
+  font-weight:800;
+  letter-spacing:0.5px;
+}
+
+/* ================= CONTACT ================= */
 
 .contact{
   max-width:600px;
@@ -193,10 +220,10 @@ button{
   cursor:pointer;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
-  padding:60px;
+  padding:80px 60px;
   font-size:12px;
   color:#999;
 }
@@ -205,7 +232,6 @@ footer{
 
 @media(max-width:900px){
   .hero h1{font-size:36px}
-  nav{gap:20px}
 }
 
 </style>
@@ -215,14 +241,14 @@ footer{
 
 <header>
 
-  <div class="logo">obvious</div>
+  <div class="logo">OBVIOUS</div>
 
   <nav>
 
     <div class="nav-item">
       <span>Work</span>
       <div class="dropdown">
-        <a href="#">HUUM Heater</a>
+        <a href="work/huum.html">HUUM Heater</a>
         <a href="#">Processing</a>
         <a href="#">Desk Lamp</a>
       </div>
@@ -236,12 +262,16 @@ footer{
 
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
   <div class="hero-inner">
     <h1>We design products people enjoy using</h1>
     <p>AI-assisted. Human-led.</p>
   </div>
 </section>
+
+<!-- WORK -->
 
 <section id="work">
   <div class="work">
@@ -273,20 +303,33 @@ footer{
   </div>
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact">
   <div class="contact">
+
+    <div class="about-block">
+      <p>
+        <strong>OBVIOUS</strong> is an AI-empowered product design bureau working in close collaboration with human expertise. 
+        We design from real human needs, grounded in practical experience and informed by manufacturing realities — 
+        creating thoughtful, user-focused solutions built for real-world use.
+      </p>
+    </div>
+
     <h2>Start a project</h2>
+
     <form onsubmit="event.preventDefault()">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Project description" rows="5" required></textarea>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Project description"></textarea>
       <button>Send</button>
     </form>
+
   </div>
 </section>
 
 <footer>
-  © 2026 obvious
+  © 2026 OBVIOUS
 </footer>
 
 </body>
