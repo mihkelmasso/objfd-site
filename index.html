@@ -3,99 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>obvious – Product Design Bureau</title>
+<title>obvious</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 
 <style>
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-
 body{
   margin:0;
   font-family:'Inter', sans-serif;
-  background:#fff;
   color:#111;
+  background:#fff;
 }
 
 /* ================= HEADER ================= */
 
 header{
   position:fixed;
-  top:0; left:0; right:0;
+  top:0;
+  left:0;
+  width:100%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   padding:20px 60px;
-  background:rgba(255,255,255,0.9);
-  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);
   z-index:100;
 }
 
-/* LOGO */
 .logo{
-  font-weight:800;
   font-size:28px;
+  font-weight:800;
 }
 
 /* NAV */
+
 nav{
   display:flex;
   align-items:center;
   gap:40px;
 }
 
-/* LINKS */
-.nav-link a,
-.nav-item span{
-  font-size:14px;
-  text-decoration:none;
-  color:#111;
-  opacity:0.6;
-  transition:0.25s;
-  cursor:pointer;
-}
-
-.nav-link a:hover,
-.nav-item span:hover{
-  opacity:1;
-}
-
-/* DROPDOWN */
 .nav-item{
   position:relative;
 }
 
+.nav-item span,
+.nav-link a{
+  font-size:14px;
+  text-decoration:none;
+  color:#111;
+  opacity:0.6;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.nav-item span:hover,
+.nav-link a:hover{
+  opacity:1;
+}
+
+/* DROPDOWN */
+
 .dropdown{
   position:absolute;
-  top:120%;
+  top:130%;
   left:50%;
-  transform:translateX(-50%) translateY(10px);
+  transform:translateX(-50%);
   background:#fff;
   border:1px solid #eee;
   padding:10px 0;
   min-width:200px;
+
   opacity:0;
   pointer-events:none;
-  transition:0.25s ease;
+  transition:0.25s;
 }
 
-/* hover area fix */
-.nav-item::after{
-  content:"";
-  position:absolute;
-  top:100%;
-  left:-20px;
-  right:-20px;
-  height:20px;
-}
-
-/* SHOW DROPDOWN */
 .nav-item:hover .dropdown{
   opacity:1;
   pointer-events:auto;
-  transform:translateX(-50%) translateY(0);
 }
 
 .dropdown a{
@@ -103,7 +92,6 @@ nav{
   padding:10px 20px;
   text-decoration:none;
   color:#111;
-  font-size:14px;
 }
 
 .dropdown a:hover{
@@ -127,23 +115,22 @@ nav{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.45);
+  background:rgba(0,0,0,0.4);
 }
 
 .hero-inner{
   position:relative;
   z-index:1;
-  max-width:800px;
+  max-width:700px;
 }
 
 .hero h1{
-  font-size:64px;
+  font-size:60px;
   margin:0;
 }
 
 .hero p{
-  margin-top:25px;
-  font-size:18px;
+  margin-top:20px;
   color:#ddd;
 }
 
@@ -161,28 +148,10 @@ section{
   gap:120px;
 }
 
-.project{
-  text-decoration:none;
-  color:#111;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
-}
-
-.project.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
 .project img{
   width:100%;
-  height:75vh;
+  height:70vh;
   object-fit:cover;
-  transition:0.6s;
-}
-
-.project:hover img{
-  transform:scale(1.03);
 }
 
 .project-info{
@@ -190,7 +159,7 @@ section{
 }
 
 .project-info h3{
-  margin:0 0 10px;
+  margin:0;
   font-size:26px;
 }
 
@@ -198,54 +167,15 @@ section{
   color:#666;
 }
 
-/* SERVICES */
-
-.services{
-  display:flex;
-  gap:60px;
-  flex-wrap:wrap;
-}
-
-.service{
-  max-width:300px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
-}
-
-.service.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ABOUT */
-
-.about{
-  max-width:700px;
-  font-size:20px;
-  line-height:1.6;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
-}
-
-.about.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
 /* CONTACT */
 
-form{
-  max-width:500px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
+.contact{
+  max-width:600px;
 }
 
-form.visible{
-  opacity:1;
-  transform:translateY(0);
+.contact h2{
+  font-size:32px;
+  margin-bottom:30px;
 }
 
 input, textarea{
@@ -266,16 +196,16 @@ button{
 /* FOOTER */
 
 footer{
-  padding:80px 60px;
-  color:#999;
+  padding:60px;
   font-size:12px;
+  color:#999;
 }
 
 /* MOBILE */
 
 @media(max-width:900px){
-  .hero h1{font-size:40px}
-  .project img{height:50vh}
+  .hero h1{font-size:36px}
+  nav{gap:20px}
 }
 
 </style>
@@ -293,7 +223,7 @@ footer{
       <span>Work</span>
       <div class="dropdown">
         <a href="#">HUUM Heater</a>
-        <a href="#">Wood Joinery</a>
+        <a href="#">Processing</a>
         <a href="#">Desk Lamp</a>
       </div>
     </div>
@@ -309,17 +239,14 @@ footer{
 <section class="hero">
   <div class="hero-inner">
     <h1>We design products people enjoy using</h1>
-    <p>
-      obvious is an AI-empowered product design bureau working in close collaboration with human expertise. 
-      We design from real human needs, grounded in practical experience and informed by manufacturing realities.
-    </p>
+    <p>AI-assisted. Human-led.</p>
   </div>
 </section>
 
 <section id="work">
   <div class="work">
 
-    <div class="project fade">
+    <div class="project">
       <img src="images/project-huum/MM_Huum_1.jpg">
       <div class="project-info">
         <h3>HUUM Heater</h3>
@@ -327,76 +254,40 @@ footer{
       </div>
     </div>
 
-    <div class="project fade">
+    <div class="project">
       <img src="images/project-processing/_DSC4518.jpg">
       <div class="project-info">
         <h3>Processing</h3>
-        <p>Material and manufacturing exploration.</p>
+        <p>Material exploration.</p>
       </div>
     </div>
 
-    <div class="project fade">
+    <div class="project">
       <img src="images/project-lamp/desk-lamp-1.jpg">
       <div class="project-info">
         <h3>Desk Lamp</h3>
-        <p>Minimal folded geometry shaping light.</p>
+        <p>Minimal folded geometry.</p>
       </div>
     </div>
 
-  </div>
-</section>
-
-<section id="services">
-  <div class="services">
-
-    <div class="service fade">
-      <h3>Product Design</h3>
-      <p>Concept and engineering-aware solutions.</p>
-    </div>
-
-    <div class="service fade">
-      <h3>3D & CAD</h3>
-      <p>Clear models ready for production.</p>
-    </div>
-
-    <div class="service fade">
-      <h3>Prototyping</h3>
-      <p>Fast iteration and validation.</p>
-    </div>
-
-  </div>
-</section>
-
-<section id="about">
-  <div class="about fade">
-    obvious is an independent design bureau focused on clarity, usability, and buildability — delivering solutions grounded in real-world use.
   </div>
 </section>
 
 <section id="contact">
-  <form class="fade" onsubmit="event.preventDefault()">
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Project description" rows="5" required></textarea>
-    <button>Send</button>
-  </form>
+  <div class="contact">
+    <h2>Start a project</h2>
+    <form onsubmit="event.preventDefault()">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Project description" rows="5" required></textarea>
+      <button>Send</button>
+    </form>
+  </div>
 </section>
 
 <footer>
   © 2026 obvious
 </footer>
-
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.fade').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
