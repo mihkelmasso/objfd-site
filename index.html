@@ -1,235 +1,185 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OBVIOUS</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:'Inter', sans-serif;
-  background:#fff;
+  font-family:'Inter',sans-serif;
   color:#111;
+  background:#fff;
+  scroll-behavior:smooth;
 }
 
-/* ================= HEADER ================= */
-
+/* HEADER */
 header{
-  position:fixed;
-  width:100%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:26px 60px;
-  background:rgba(255,255,255,0.4);
-  backdrop-filter:blur(4px);
-  transition:all 0.5s cubic-bezier(.22,1,.36,1);
+  padding:24px 40px;
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(12px);
   z-index:100;
 }
 
-header.scrolled{
-  padding:16px 60px;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(16px);
-  box-shadow:0 2px 20px rgba(0,0,0,0.05);
-}
-
 .logo{
-  font-size:28px;
-  font-weight:800;
+  font-size:26px;
+  font-weight:600;
 }
-
-/* NAV */
 
 nav{
   display:flex;
   gap:40px;
 }
 
-.nav-item,
-.nav-link{
-  position:relative;
-  cursor:pointer;
-}
-
-/* underline center-grow */
-
-.nav-item span,
-.nav-link a{
-  position:relative;
+nav a{
   text-decoration:none;
-  color:#111;
+  color:#666;
+  transition:0.3s;
 }
 
-.nav-item span::after,
-.nav-link a::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-6px;
-  width:0%;
-  height:1px;
-  background:#111;
-  transform:translateX(-50%);
-  transition:all 0.35s cubic-bezier(.22,1,.36,1);
-}
+nav a:hover{color:#000}
 
-.nav-item span:hover::after,
-.nav-link a:hover::after{
-  width:100%;
-}
-
-/* dropdown */
+/* DROPDOWN */
+.work{position:relative}
 
 .dropdown{
   position:absolute;
-  top:140%;
-  left:50%;
-  transform:translateX(-50%) translateY(10px);
+  top:40px;
+  left:0;
   background:#fff;
-  border:1px solid #eee;
-  min-width:200px;
+  padding:14px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
   opacity:0;
   pointer-events:none;
-  transition:all 0.25s ease;
+  transform:translateY(10px);
+  transition:0.25s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-.nav-item:hover .dropdown{
+.work:hover .dropdown{
   opacity:1;
   pointer-events:auto;
-  transform:translateX(-50%) translateY(0);
+  transform:translateY(0);
 }
 
-.dropdown a{
-  display:block;
-  padding:12px 20px;
-  text-decoration:none;
-  color:#111;
-}
-
-.dropdown a:hover{
-  background:#f7f7f7;
-}
-
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
   height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:url('images/project-huum/MM_Huum_1.jpg') center/cover no-repeat;
-  color:#fff;
-  position:relative;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.45);
-}
-
-.hero-inner{
-  position:relative;
-  z-index:1;
-  max-width:900px;
+  padding:0 20px;
 }
 
 .hero h1{
-  font-size:72px;
-  margin:0;
+  font-size:64px;
+  font-weight:600;
+  letter-spacing:-1px;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1.2s ease forwards;
 }
 
 .hero p{
   margin-top:20px;
-  color:#ddd;
-  font-size:20px;
+  font-size:18px;
+  color:#666;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1.2s ease forwards;
+  animation-delay:0.2s;
 }
 
-/* ================= WORK ================= */
-
-.work-grid{
+/* PROJECTS */
+.projects{
+  padding:120px 40px;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:60px;
-  padding:140px 60px;
 }
 
 .project{
-  text-decoration:none;
-  color:#111;
-  overflow:hidden;
-  transition:transform 0.5s cubic-bezier(.22,1,.36,1);
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease;
 }
 
-.project:hover{
-  transform:translateY(-8px) scale(1.01);
+.project.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .project img{
   width:100%;
-  height:60vh;
-  object-fit:cover;
-  transition:transform 1.2s cubic-bezier(.22,1,.36,1);
+  transition:0.6s;
 }
 
 .project:hover img{
-  transform:scale(1.1);
+  transform:scale(1.05);
 }
 
 .project-info{
-  margin-top:20px;
+  margin-top:22px;
 }
 
-.project-info h3{
-  margin:0;
-  font-size:26px;
+.project-title{
+  font-size:20px;
+  font-weight:600;
 }
 
-.project-info p{
+.project-desc{
   color:#666;
 }
 
-/* ================= ABOUT ================= */
-
-#about{
-  padding:100px 60px;
-}
-
+/* ABOUT */
 .about{
+  padding:140px 40px;
   max-width:800px;
-  margin:auto;
-  font-size:22px;
-  line-height:1.6;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
 }
 
-.about strong{
-  font-weight:800;
+.about.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* ================= CONTACT ================= */
+.about h2{
+  font-size:34px;
+  margin-bottom:20px;
+}
 
-section{
-  padding:140px 60px;
+.about p{
+  color:#555;
+  line-height:1.7;
+}
+
+/* CONTACT */
+footer{
+  padding:100px 40px;
 }
 
 .contact{
   max-width:600px;
 }
 
-.contact p{
-  margin-bottom:40px;
-  color:#666;
+.contact h2{
+  font-size:32px;
+  margin-bottom:30px;
 }
 
 input, textarea{
@@ -237,57 +187,38 @@ input, textarea{
   border:none;
   border-bottom:1px solid #ddd;
   padding:12px 0;
-  margin-bottom:25px;
+  margin-bottom:20px;
+  font-family:inherit;
 }
 
 button{
-  border:1px solid #111;
-  padding:12px 24px;
-  background:none;
+  padding:12px 22px;
+  background:#111;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-/* ================= FOOTER ================= */
+button:hover{
+  background:#333;
+}
 
-footer{
-  padding:80px 60px;
+/* FOOTER */
+.copyright{
+  margin-top:60px;
   color:#999;
-  opacity:0;
-  transform:translateY(30px) scale(0.98);
-  transition:all 1s cubic-bezier(.22,1,.36,1);
+  font-size:13px;
 }
 
-footer.visible{
-  opacity:1;
-  transform:translateY(0) scale(1);
-}
-
-/* ================= ANIMATIONS ================= */
-
-.fade{
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
-}
-
-.fade.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-  .work-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:42px;
+/* ANIM */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 }
-
 </style>
-
 </head>
 
 <body>
@@ -296,130 +227,96 @@ footer.visible{
   <div class="logo">OBVIOUS</div>
 
   <nav>
-    <div class="nav-item">
-      <span>Work</span>
+    <div class="work">
+      <a href="#">Work</a>
       <div class="dropdown">
-        <a href="work/huum.html">HUUM Heater</a>
-        <a href="#">Wood Joinery</a>
+        <a href="huum.html">HUUM Heater</a>
         <a href="#">Desk Lamp</a>
+        <a href="#">Processing</a>
       </div>
     </div>
-
-```
-<div class="nav-link"><a href="#about">About</a></div>
-<div class="nav-link"><a href="#contact">Contact</a></div>
-```
-
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <!-- HERO -->
-
 <section class="hero">
-  <div class="hero-inner">
-    <h1>We design products people enjoy using</h1>
-    <p>AI-assisted. Human-led.</p>
+  <div>
+    <h1>Design reduced to its essence</h1>
+    <p>Product design focused on clarity, function and form.</p>
   </div>
 </section>
 
-<!-- WORK -->
+<!-- PROJECTS -->
+<section class="projects">
 
-<div class="work-grid">
-
-  <a href="work/huum.html" class="project fade">
-    <img src="images/project-huum/MM_Huum_1.jpg">
+  <div class="project">
+    <img src="images/project-huum/huum-5.jpg">
     <div class="project-info">
-      <h3>HUUM Heater</h3>
-      <p>Minimal sauna heater design</p>
+      <div class="project-title">HUUM Heater</div>
+      <div class="project-desc">Minimal sauna heater design</div>
     </div>
-  </a>
+  </div>
 
-  <a href="#" class="project fade">
+  <div class="project">
     <img src="images/project-lamp/desk-lamp-1.jpg">
     <div class="project-info">
-      <h3>Desk Lamp</h3>
-      <p>Folded geometry</p>
+      <div class="project-title">Desk Lamp</div>
+      <div class="project-desc">Folded geometry</div>
     </div>
-  </a>
+  </div>
 
-</div>
+  <div class="project">
+    <img src="images/project-processing/_DSC4518.jpg">
+    <div class="project-info">
+      <div class="project-title">Processing</div>
+      <div class="project-desc">Material exploration</div>
+    </div>
+  </div>
+
+</section>
 
 <!-- ABOUT -->
-
-<section id="about">
-  <div class="about fade">
-    <p>
-      <strong>OBVIOUS</strong> is an AI-empowered product design bureau working in close collaboration with human expertise. 
-      We design from real human needs, grounded in practical experience and informed by manufacturing realities — 
-      creating thoughtful, user-focused solutions built for real-world use.
-    </p>
-  </div>
+<section id="about" class="about">
+  <h2>About</h2>
+  <p>
+    OBVIOUS is a product design studio focused on clarity, reduction and essential form.
+    We design objects that are intuitive, precise and timeless.
+    Each project explores the balance between function, material and geometry.
+  </p>
 </section>
 
 <!-- CONTACT -->
+<footer id="contact">
+  <div class="contact">
+    <h2>Start a project</h2>
 
-<section id="contact">
-  <div class="contact fade">
+    <input placeholder="Name">
+    <input placeholder="Email">
+    <textarea placeholder="Project description"></textarea>
 
-```
-<h2>Start a project</h2>
-
-<p>
-  OBVIOUS is an AI-empowered product design bureau working in close collaboration with human expertise.
-</p>
-
-<form>
-  <input type="text" placeholder="Name">
-  <input type="email" placeholder="Email">
-  <textarea rows="5" placeholder="Project description"></textarea>
-  <button>Send</button>
-</form>
-```
-
+    <button>Send</button>
   </div>
-</section>
 
-<footer>
-  © 2026 OBVIOUS
+  <div class="copyright">
+    © 2026 obvious
+  </div>
 </footer>
 
 <script>
+/* SCROLL REVEAL */
+const elements = document.querySelectorAll('.project, .about');
 
-/* header */
-window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  header.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-/* reveal stagger */
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     if(entry.isIntersecting){
       entry.target.classList.add('visible');
     }
   });
-},{threshold:0.2});
+}, {threshold:0.2});
 
-document.querySelectorAll('.fade').forEach((el,i)=>{
-  el.style.transitionDelay = (i * 0.08) + "s";
-  observer.observe(el);
-});
-
-/* footer */
-const footer = document.querySelector('footer');
-
-window.addEventListener('scroll', () => {
-  if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 100){
-    footer.classList.add('visible');
-  }
-});
-
-/* hero parallax */
-window.addEventListener("scroll", () => {
-  const hero = document.querySelector(".hero");
-  hero.style.backgroundPositionY = window.scrollY * 0.3 + "px";
-});
-
+elements.forEach(el => observer.observe(el));
 </script>
 
 </body>
