@@ -16,7 +16,7 @@ body{
   color:#111;
 }
 
-/* HEADER (UNCHANGED) */
+/* HEADER */
 header{
   display:flex;
   justify-content:space-between;
@@ -28,11 +28,6 @@ header{
   background:rgba(255,255,255,0.85);
   backdrop-filter:blur(12px);
   z-index:100;
-  transition:0.4s;
-}
-
-header.scrolled{
-  padding:16px 40px;
 }
 
 .logo{
@@ -43,31 +38,29 @@ header.scrolled{
 nav{
   display:flex;
   gap:40px;
-  align-items:center;
 }
 
 nav a{
   text-decoration:none;
   color:#666;
   font-size:15px;
-  transition:0.3s;
+  transition:0.2s;
 }
 
 nav a:hover{color:#000}
 
-/* DROPDOWN (WORKING VERSION) */
+/* DROPDOWN FIX */
 .work{
   position:relative;
-  padding-bottom:10px;
+  padding-bottom:12px;
 }
 
 .work::after{
   content:"";
   position:absolute;
   top:100%;
-  left:0;
+  height:16px;
   width:100%;
-  height:15px;
 }
 
 .dropdown{
@@ -75,36 +68,30 @@ nav a:hover{color:#000}
   top:calc(100% + 6px);
   left:0;
   background:#fff;
-  padding:14px 18px;
+  padding:16px 20px;
   display:flex;
   flex-direction:column;
   gap:10px;
-
   opacity:0;
   pointer-events:none;
   transform:translateY(8px);
   transition:0.25s ease;
-
-  box-shadow:0 12px 40px rgba(0,0,0,0.08);
-  border-radius:6px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
 }
 
-.work:hover .dropdown,
-.work:focus-within .dropdown{
+.work:hover .dropdown{
   opacity:1;
   pointer-events:auto;
   transform:translateY(0);
 }
 
-/* HERO (UNCHANGED) */
+/* HERO */
 .hero{
   height:100vh;
   position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  overflow:hidden;
   color:#fff;
 }
 
@@ -113,50 +100,33 @@ nav a:hover{color:#000}
   width:100%;
   height:100%;
   background:url("images/hero/hero.jpg") center/cover no-repeat;
-  transform:scale(1.05);
   filter:brightness(0.85);
 }
 
 .hero-content{
   position:relative;
-  z-index:2;
+  text-align:center;
 }
 
 .hero h1{
   font-size:64px;
-  font-weight:600;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1.2s ease forwards;
+  font-weight:500;
 }
 
-.hero p{
-  margin-top:20px;
-  font-size:18px;
-  opacity:0.85;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1.2s ease forwards;
-  animation-delay:0.2s;
-}
-
-/* PROJECTS (UNCHANGED STYLE) */
+/* PROJECTS (APPLE GRID) */
 .projects{
   padding:120px 40px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
+  column-count:2;
+  column-gap:60px;
 }
 
 .project{
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s ease;
+  break-inside:avoid;
+  margin-bottom:60px;
 }
 
-.project.visible{
-  opacity:1;
-  transform:translateY(0);
+.project:nth-child(3n){
+  transform:translateY(40px);
 }
 
 .project img{
@@ -166,34 +136,32 @@ nav a:hover{color:#000}
 }
 
 .project:hover img{
-  transform:scale(1.05);
+  transform:scale(1.04);
 }
 
 .project-info{
-  margin-top:26px; /* oluline fix (ei sõida peale) */
+  margin-top:24px;
 }
 
 .project-title{
-  font-size:20px;
   font-weight:600;
+  font-size:18px;
 }
 
 .project-desc{
   color:#666;
+  margin-top:6px;
 }
 
 /* ABOUT */
 .about{
   padding:140px 40px;
   max-width:800px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
 }
 
-.about.visible{
-  opacity:1;
-  transform:translateY(0);
+.about h2{
+  font-size:28px;
+  margin-bottom:20px;
 }
 
 /* CONTACT */
@@ -201,40 +169,28 @@ footer{
   padding:100px 40px;
 }
 
-.contact{
-  max-width:600px;
+footer h2{
+  font-size:28px;
+  margin-bottom:40px;
 }
 
 input, textarea{
   width:100%;
   border:none;
   border-bottom:1px solid #ddd;
-  padding:12px 0;
-  margin-bottom:20px;
+  padding:14px 0;
+  margin-bottom:24px;
+  font-size:14px;
 }
 
-button{
-  padding:12px 22px;
-  background:#111;
-  color:#fff;
-  border:none;
-  cursor:pointer;
-  transition:0.3s;
-}
+/* RESPONSIVE */
+@media (max-width:900px){
+  .projects{
+    column-count:1;
+  }
 
-button:hover{background:#333}
-
-.copyright{
-  margin-top:60px;
-  color:#999;
-  font-size:13px;
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
+  .hero h1{
+    font-size:36px;
   }
 }
 </style>
@@ -267,13 +223,13 @@ button:hover{background:#333}
   <div class="hero-bg"></div>
   <div class="hero-content">
     <h1>Design reduced to its essence</h1>
-    <p>Product design focused on clarity, function and form.</p>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section class="projects">
 
+  <!-- HUUM -->
   <div class="project">
     <img src="images/project-huum/huum-5.jpg">
     <div class="project-info">
@@ -282,6 +238,7 @@ button:hover{background:#333}
     </div>
   </div>
 
+  <!-- LAMP -->
   <div class="project">
     <img src="images/project-lamp/desk-lamp-1.jpg">
     <div class="project-info">
@@ -290,24 +247,27 @@ button:hover{background:#333}
     </div>
   </div>
 
+  <!-- CRUTCHES (FIXED ✅) -->
   <div class="project">
-    <img src="crutches/1.jpg">
+    <img src="images/crutches/c-1.png">
     <div class="project-info">
       <div class="project-title">Crutches</div>
       <div class="project-desc">Mobility design</div>
     </div>
   </div>
 
+  <!-- EMPYREAN -->
   <div class="project">
-    <img src="empyrean/1.jpg">
+    <img src="images/empyrean/e-1.png">
     <div class="project-info">
       <div class="project-title">Empyrean</div>
       <div class="project-desc">Concept exploration</div>
     </div>
   </div>
 
+  <!-- EYS -->
   <div class="project">
-    <img src="eys/1.jpg">
+    <img src="images/eys/eys-1.png">
     <div class="project-info">
       <div class="project-title">Eys</div>
       <div class="project-desc">Material study</div>
@@ -321,40 +281,17 @@ button:hover{background:#333}
   <h2>About</h2>
   <p>
     OBVIOUS is a product design studio focused on clarity, reduction and essential form.
-    We design objects that are intuitive, precise and timeless.
   </p>
 </section>
 
 <!-- CONTACT -->
 <footer id="contact">
-  <div class="contact">
-    <h2>Start a project</h2>
+  <h2>Start a project</h2>
 
-    <input placeholder="Name">
-    <input placeholder="Email">
-    <textarea placeholder="Project description"></textarea>
-
-    <button>Send</button>
-  </div>
-
-  <div class="copyright">
-    © 2026 obvious
-  </div>
+  <input placeholder="Name">
+  <input placeholder="Email">
+  <textarea placeholder="Project description"></textarea>
 </footer>
-
-<script>
-const elements = document.querySelectorAll('.project, .about');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-}, {threshold:0.2});
-
-elements.forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
