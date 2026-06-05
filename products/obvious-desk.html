@@ -6,12 +6,14 @@
 <title>obvious desk — OBVIOUS</title>
 <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
 
 <div class="cursor"></div>
 
 <header>
   <a class="logo" href="../index.html">OBVIOUS</a>
+
   <nav>
     <a href="../index.html">products |</a>
     <a href="../about.html">about |</a>
@@ -19,35 +21,75 @@
   </nav>
 </header>
 
-<main class="product-page">
-  <section class="product-hero">
-    <img src="../images/desk/01.jpg" alt="obvious desk">
+<main class="exhibition-page">
 
-    <div class="product-info">
-      <h1>obvious desk</h1>
-      <div class="price">price on request</div>
-      <p>
-        A minimal working table object designed around transparency,
-        construction and quiet utility.
-      </p>
-
-      <form action="mailto:info@obvious.ee" method="post" enctype="text/plain">
-        <input name="name" placeholder="Name">
-        <input name="email" placeholder="Email">
-        <textarea name="message" rows="5" placeholder="Inquiry"></textarea>
-        <button type="submit">Inquire</button>
-      </form>
-    </div>
+  <section class="motion-item exhibit-title title-block">
+    <h1>obvious desk</h1>
+    <p>collectible furniture object</p>
   </section>
 
-  <section class="gallery-grid" id="gallery"></section>
+  <section class="motion-item exhibit-image image-large">
+    <img src="../images/desk/01.jpg" alt="obvious desk">
+  </section>
 
-<script>
-const PRODUCT_FOLDER = "desk";
-const IMAGE_COUNT = 2;
-</script>
-<script src="../gallery.js"></script>
+  <section class="motion-item exhibit-text description-block">
+    <p>
+      A mobile work surface designed around transparency, movement and quiet function.
+      The object sits between furniture and apparatus — a table that can shift,
+      adapt and remain visually light within a room.
+    </p>
+  </section>
+
+  <section class="motion-item exhibit-image image-medium">
+    <img src="../images/desk/02.png" alt="obvious desk detail">
+  </section>
+
+  <section class="motion-item exhibit-text note-block">
+    <p>
+      The desk is conceived as a clear structure: reduced to what is necessary,
+      without removing the character of use.
+    </p>
+  </section>
+
+  <section class="motion-item exhibit-info info-block">
+    <h2>information</h2>
+
+    <div class="info-row">
+      <span>Object</span>
+      <span>obvious desk</span>
+    </div>
+
+    <div class="info-row">
+      <span>Category</span>
+      <span>furniture object</span>
+    </div>
+
+    <div class="info-row">
+      <span>Material</span>
+      <span>glass, steel, castors</span>
+    </div>
+
+    <div class="info-row">
+      <span>Availability</span>
+      <span>made to order</span>
+    </div>
+
+    <div class="info-row">
+      <span>Price</span>
+      <span>on request</span>
+    </div>
+
+    <form action="mailto:info@obvious.ee" method="post" enctype="text/plain">
+      <input name="name" placeholder="Name">
+      <input name="email" placeholder="Email">
+      <textarea name="message" rows="5" placeholder="Request information"></textarea>
+      <button type="submit">Request information</button>
+    </form>
+  </section>
+
 </main>
+
+<footer>© OBVIOUS</footer>
 
 <script src="../script.js"></script>
 </body>
