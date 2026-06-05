@@ -1,42 +1,51 @@
-const items = document.querySelectorAll('.floating');
+const header = document.querySelector("header");
+const floatingItems = document.querySelectorAll(".tile");
 
-window.addEventListener('scroll', () => {
+function updateMotion(){
+  const scroll = window.scrollY;
 
-    const scroll = window.scrollY;
+  header.classList.toggle("scrolled", scroll > 60);
 
-    items.forEach((item, index) => {
+  floatingItems.forEach((item, index) => {
+    const baseSpeed = parseFloat(item.dataset.speed || 0.04);
+    const baseScale = parseFloat(item.dataset.scale || 1);
+    const phase = index * 0.9;
 
-        let x = 0;
-        let y = scroll * 0.15;
+    let x = 0;
+    let y = scroll * baseSpeed;
 
-        switch(index % 5) {
+    if(index % 5 === 0){
+      x = Math.sin(scroll * 0.002 + phase) * 140;
+      y += Math.cos(scroll * 0.0016 + phase) * 50;
+    }
 
-            case 0:
-                x = scroll * 0.08;
-                break;
+    if(index % 5 === 1){
+      x = -Math.sin(scroll * 0.0018 + phase) * 120;
+      y += Math.sin(scroll * 0.0022 + phase) * 70;
+    }
 
-            case 1:
-                x = -scroll * 0.06;
-                break;
+    if(index % 5 === 2){
+      x = Math.cos(scroll * 0.002 + phase) * 90;
+      y += Math.sin(scroll * 0.0014 + phase) * 120;
+    }
 
-            case 2:
-                x = Math.sin(scroll * 0.002) * 120;
-                break;
+    if(index % 5 === 3){
+      x = Math.sin(scroll * 0.0015 + phase) * 180;
+      y += Math.cos(scroll * 0.002 + phase) * 80;
+    }
 
-            case 3:
-                x = Math.cos(scroll * 0.002) * 80;
-                break;
+    if(index % 5 === 4){
+      x = -Math.cos(scroll * 0.0017 + phase) * 110;
+      y += Math.sin(scroll * 0.0019 + phase) * 100;
+    }
 
-            case 4:
-                x = Math.sin(scroll * 0.0015) * 180;
-                break;
-        }
+    const scale = baseScale + Math.sin(scroll * 0.0015 + phase) * 0.08;
+    const rotate = Math.sin(scroll * 0.001 + phase) * 1.2;
 
-        const scale =
-            1 + Math.sin(scroll * 0.001 + index) * 0.08;
+    item.style.transform =
+      `translate3d(${x}px, ${y}px, 0) scale(${scale}) rotate(${rotate}deg)`;
+  });
+}
 
-        item.style.transform =
-            `translate(${x}px, ${y}px) scale(${scale})`;
-    });
-
-});
+window.addEventListener("scroll", updateMotion, { passive:true });
+window.addEventListener("load", updateMotion);
