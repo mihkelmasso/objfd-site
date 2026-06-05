@@ -21,22 +21,24 @@ header{
   padding:52px 10vw 24px;
   background:rgba(247,247,245,.82);
   backdrop-filter:blur(14px);
-  transition:.5s ease;
+  transition:.55s cubic-bezier(.22,1,.36,1);
 }
 
 header.scrolled{
   padding:18px 10vw 14px;
+  background:rgba(247,247,245,.9);
 }
 
 .logo{
   font-size:52px;
   letter-spacing:.02em;
   font-weight:400;
-  transition:.5s ease;
+  transition:.55s cubic-bezier(.22,1,.36,1);
 }
 
 header.scrolled .logo{
   font-size:20px;
+  letter-spacing:.08em;
 }
 
 nav{
@@ -44,11 +46,12 @@ nav{
   gap:28px;
   font-size:17px;
   align-items:flex-start;
-  transition:.5s ease;
+  transition:.55s cubic-bezier(.22,1,.36,1);
 }
 
 header.scrolled nav{
   font-size:12px;
+  letter-spacing:.04em;
 }
 
 .nav-item{
@@ -69,7 +72,7 @@ header.scrolled nav{
   position:absolute;
   top:30px;
   right:0;
-  min-width:220px;
+  min-width:230px;
   background:rgba(247,247,245,.96);
   padding:18px;
   display:flex;
@@ -90,7 +93,7 @@ header.scrolled nav{
 
 .gallery{
   position:relative;
-  min-height:360vh;
+  min-height:370vh;
   padding:0 0 30vh;
 }
 
@@ -104,32 +107,45 @@ header.scrolled nav{
 .tile img{
   width:100%;
   display:block;
-  transition:opacity .35s ease, transform .8s cubic-bezier(.22,1,.36,1);
+  transition:opacity .38s ease, transform .9s cubic-bezier(.22,1,.36,1), filter .38s ease;
 }
 
 .tile.product:hover img{
-  opacity:.34;
-  transform:scale(1.035);
+  opacity:.28;
+  filter:blur(.2px);
+  transform:scale(1.04);
 }
 
 .product-title{
   position:absolute;
   inset:0;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   font-size:72px;
   font-weight:400;
-  letter-spacing:-.04em;
-  color:#161616;
+  letter-spacing:-.045em;
+  color:#151515;
   opacity:0;
-  transition:.35s ease;
+  transform:translateY(18px);
+  transition:.38s cubic-bezier(.22,1,.36,1);
   text-align:center;
   padding:20px;
 }
 
+.product-title::after{
+  content:"";
+  width:120px;
+  height:1px;
+  background:#111;
+  margin-top:22px;
+  opacity:.8;
+}
+
 .tile.product:hover .product-title{
   opacity:1;
+  transform:translateY(0);
 }
 
 /* curated starting positions */
