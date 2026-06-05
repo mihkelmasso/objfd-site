@@ -6,12 +6,14 @@
 <title>swan lamp — OBVIOUS</title>
 <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
 
 <div class="cursor"></div>
 
 <header>
   <a class="logo" href="../index.html">OBVIOUS</a>
+
   <nav>
     <a href="../index.html">products |</a>
     <a href="../about.html">about |</a>
@@ -19,35 +21,93 @@
   </nav>
 </header>
 
-<main class="product-page">
-  <section class="product-hero">
-    <img src="../images/lamp/01.jpg" alt="swan lamp">
+<main class="exhibition-page">
 
-    <div class="product-info">
-      <h1>swan lamp</h1>
-      <div class="price">price on request</div>
-      <p>
-        A folded light object with a quiet silhouette and a soft architectural presence.
-      </p>
-
-      <form action="mailto:info@obvious.ee" method="post" enctype="text/plain">
-        <input name="name" placeholder="Name">
-        <input name="email" placeholder="Email">
-        <textarea name="message" rows="5" placeholder="Inquiry"></textarea>
-        <button type="submit">Inquire</button>
-      </form>
-    </div>
+  <section class="motion-item exhibit-title title-block">
+    <h1>swan lamp</h1>
+    <p>collectible light object</p>
   </section>
 
-  <section class="gallery-grid" id="gallery"></section>
+  <section class="motion-item exhibit-image image-large">
+    <img src="../images/lamp/01.jpg" alt="swan lamp">
+  </section>
 
-<script>
-const PRODUCT_FOLDER = "lamp";
-const IMAGE_COUNT = 3;
-</script>
-<script src="../gallery.js"></script>
+  <section class="motion-item exhibit-text description-block">
+    <p>
+      A light object exploring balance, silhouette and presence.
+      The lamp functions both as illumination and as a quiet architectural
+      element within a room.
+    </p>
+  </section>
+
+  <section class="motion-item exhibit-image image-medium">
+    <img src="../images/lamp/02.jpg" alt="swan lamp detail">
+  </section>
+
+  <section class="motion-item exhibit-text note-block">
+    <p>
+      Its character emerges through proportion rather than decoration.
+      Light, shadow and reflection become part of the object itself.
+    </p>
+  </section>
+
+  <section class="motion-item exhibit-info info-block">
+
+    <h2>information</h2>
+
+    <div class="info-row">
+      <span>Object</span>
+      <span>swan lamp</span>
+    </div>
+
+    <div class="info-row">
+      <span>Category</span>
+      <span>lighting object</span>
+    </div>
+
+    <div class="info-row">
+      <span>Material</span>
+      <span>steel, light source specified on request</span>
+    </div>
+
+    <div class="info-row">
+      <span>Availability</span>
+      <span>made to order</span>
+    </div>
+
+    <div class="info-row">
+      <span>Price</span>
+      <span>on request</span>
+    </div>
+
+    <form action="mailto:info@obvious.ee" method="post" enctype="text/plain">
+
+      <input
+        name="name"
+        placeholder="Name">
+
+      <input
+        name="email"
+        placeholder="Email">
+
+      <textarea
+        name="message"
+        rows="5"
+        placeholder="Request information"></textarea>
+
+      <button type="submit">
+        Request information
+      </button>
+
+    </form>
+
+  </section>
+
 </main>
 
+<footer>© OBVIOUS</footer>
+
 <script src="../script.js"></script>
+
 </body>
 </html>
