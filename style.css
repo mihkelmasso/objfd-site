@@ -405,7 +405,7 @@ footer{
 
 .info-block{
   width:44vw;
-  top:285vh;
+  top:340vh;
   left:10vw;
   z-index:5;
   background:rgba(247,247,245,.78);
@@ -438,7 +438,7 @@ footer{
 
 @media(max-width:900px){
   .exhibition-page{
-    min-height:auto;
+    min-height:430vh;
     padding:140px 24px 80px;
     display:flex;
     flex-direction:column;
