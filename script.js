@@ -82,8 +82,8 @@ if (cursor && window.matchMedia("(pointer:fine)").matches) {
   });
 
   function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.22;
-    cursorY += (mouseY - cursorY) * 0.22;
+    cursorX += (mouseX - cursorX) * 0.4;
+    cursorY += (mouseY - cursorY) * 0.4;
 
     const dx = cursorX - prevX;
     const dy = cursorY - prevY;
