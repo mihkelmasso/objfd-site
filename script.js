@@ -82,14 +82,14 @@ if (cursor && window.matchMedia("(pointer:fine)").matches) {
   });
 
   function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.075;
-    cursorY += (mouseY - cursorY) * 0.075;
+    cursorX += (mouseX - cursorX) * 0.22;
+    cursorY += (mouseY - cursorY) * 0.22;
 
     const dx = cursorX - prevX;
     const dy = cursorY - prevY;
     const speed = Math.sqrt(dx * dx + dy * dy);
 
-    const stretch = Math.min(speed * 0.22, 22);
+    const stretch = Math.min(speed * 0.08, 8);
 
     cursor.style.left = cursorX + "px";
     cursor.style.top = cursorY + "px";
