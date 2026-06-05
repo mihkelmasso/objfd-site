@@ -1,10 +1,14 @@
 const header = document.querySelector("header");
 const floatingItems = document.querySelectorAll(".tile");
+const cursor = document.querySelector(".cursor");
 
+/* HEADER + FLOATING GALLERY */
 function updateMotion(){
   const scroll = window.scrollY;
 
-  header.classList.toggle("scrolled", scroll > 60);
+  if(header){
+    header.classList.toggle("scrolled", scroll > 60);
+  }
 
   floatingItems.forEach((item, index) => {
     const baseSpeed = parseFloat(item.dataset.speed || 0.04);
@@ -13,9 +17,9 @@ function updateMotion(){
 
     let depth = 1;
 
-    if(index % 3 === 0) depth = 1.65;      // foreground
-    if(index % 3 === 1) depth = 1.00;      // middle
-    if(index % 3 === 2) depth = 0.55;      // background
+    if(index % 3 === 0) depth = 1.65;
+    if(index % 3 === 1) depth = 1.00;
+    if(index % 3 === 2) depth = 0.55;
 
     let x = 0;
     let y = scroll * baseSpeed * depth;
@@ -55,3 +59,65 @@ function updateMotion(){
 
 window.addEventListener("scroll", updateMotion, { passive:true });
 window.addEventListener("load", updateMotion);
+
+
+/* INERTIA CURSOR */
+if(cursor && window.matchMedia("(pointer:fine)").matches){
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+
+  let prevX = cursorX;
+  let prevY = cursorY;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animateCursor(){
+    cursorX += (mouseX - cursorX) * 0.075;
+    cursorY += (mouseY - cursorY) * 0.075;
+
+    const dx = cursorX - prevX;
+    const dy = cursorY - prevY;
+    const speed = Math.sqrt(dx * dx + dy * dy);
+
+    const stretch = Math.min(speed * 0.22, 22);
+
+    cursor.style.left = cursorX + "px";
+    cursor.style.top = cursorY + "px";
+
+    cursor.style.transform =
+      `translate(-50%, -50%) scale(${1 + stretch / 100}, ${1 - stretch / 320})`;
+
+    prevX = cursorX;
+    prevY = cursorY;
+
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+
+  document.querySelectorAll("a, button").forEach(el => {
+    el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+    el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+  });
+
+  document.querySelectorAll(".tile.product").forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      cursor.classList.remove("hover");
+      cursor.classList.add("product");
+    });
+
+    el.addEventListener("mouseleave", () => {
+      cursor.classList.remove("product");
+    });
+  });
+
+  document.addEventListener("mouseleave", () => cursor.classList.add("hidden"));
+  document.addEventListener("mouseenter", () => cursor.classList.remove("hidden"));
+}
