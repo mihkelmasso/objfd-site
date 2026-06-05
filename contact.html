@@ -1,9 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Contact</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — OBVIOUS</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-Contact page
+
+<header>
+  <a class="logo" href="index.html">OBVIOUS</a>
+  <nav>
+    <a href="index.html">products |</a>
+    <a href="about.html">about |</a>
+    <a href="contact.html">contact</a>
+  </nav>
+</header>
+
+<main class="page">
+  <h1>Contact</h1>
+  <p>
+    For product inquiries, commissions, availability or custom versions,
+    please get in touch.
+  </p>
+
+  <form action="mailto:info@obvious.ee" method="post" enctype="text/plain">
+    <input name="name" placeholder="Name">
+    <input name="email" placeholder="Email">
+    <textarea name="message" rows="6" placeholder="Message"></textarea>
+    <button type="submit">Send inquiry</button>
+  </form>
+</main>
+
+<footer>© OBVIOUS</footer>
+<script src="script.js"></script>
 </body>
 </html>
