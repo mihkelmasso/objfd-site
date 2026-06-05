@@ -3,10 +3,10 @@ const floatingItems = document.querySelectorAll(".tile");
 const cursor = document.querySelector(".cursor");
 
 /* HEADER + FLOATING GALLERY */
-function updateMotion(){
+function updateMotion() {
   const scroll = window.scrollY;
 
-  if(header){
+  if (header) {
     header.classList.toggle("scrolled", scroll > 60);
   }
 
@@ -17,53 +17,55 @@ function updateMotion(){
 
     let depth = 1;
 
-    if(index % 3 === 0) depth = 1.65;
-    if(index % 3 === 1) depth = 1.00;
-    if(index % 3 === 2) depth = 0.55;
+    if (index % 3 === 0) depth = 1.65;
+    if (index % 3 === 1) depth = 1.0;
+    if (index % 3 === 2) depth = 0.55;
 
     let x = 0;
     let y = scroll * baseSpeed * depth;
 
-    if(index % 5 === 0){
+    if (index % 5 === 0) {
       x = Math.sin(scroll * 0.002 + phase) * 150 * depth;
       y += Math.cos(scroll * 0.0016 + phase) * 55 * depth;
     }
 
-    if(index % 5 === 1){
+    if (index % 5 === 1) {
       x = -Math.sin(scroll * 0.0018 + phase) * 130 * depth;
       y += Math.sin(scroll * 0.0022 + phase) * 75 * depth;
     }
 
-    if(index % 5 === 2){
+    if (index % 5 === 2) {
       x = Math.cos(scroll * 0.002 + phase) * 95 * depth;
       y += Math.sin(scroll * 0.0014 + phase) * 125 * depth;
     }
 
-    if(index % 5 === 3){
+    if (index % 5 === 3) {
       x = Math.sin(scroll * 0.0015 + phase) * 190 * depth;
       y += Math.cos(scroll * 0.002 + phase) * 85 * depth;
     }
 
-    if(index % 5 === 4){
+    if (index % 5 === 4) {
       x = -Math.cos(scroll * 0.0017 + phase) * 115 * depth;
       y += Math.sin(scroll * 0.0019 + phase) * 105 * depth;
     }
 
-    const scale = baseScale + Math.sin(scroll * 0.0015 + phase) * 0.08 * depth;
-    const rotate = Math.sin(scroll * 0.001 + phase) * 1.1 * depth;
+    const scale =
+      baseScale + Math.sin(scroll * 0.0015 + phase) * 0.08 * depth;
+
+    const rotate =
+      Math.sin(scroll * 0.001 + phase) * 1.1 * depth;
 
     item.style.transform =
       `translate3d(${x}px, ${y}px, 0) scale(${scale}) rotate(${rotate}deg)`;
   });
 }
 
-window.addEventListener("scroll", updateMotion, { passive:true });
+window.addEventListener("scroll", updateMotion, { passive: true });
 window.addEventListener("load", updateMotion);
 
 
-/* INERTIA CURSOR */
-if(cursor && window.matchMedia("(pointer:fine)").matches){
-
+/* INERTIA DONUT CURSOR */
+if (cursor && window.matchMedia("(pointer:fine)").matches) {
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
 
@@ -76,9 +78,10 @@ if(cursor && window.matchMedia("(pointer:fine)").matches){
   window.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    cursor.classList.remove("hidden");
   });
 
-  function animateCursor(){
+  function animateCursor() {
     cursorX += (mouseX - cursorX) * 0.075;
     cursorY += (mouseY - cursorY) * 0.075;
 
@@ -102,12 +105,17 @@ if(cursor && window.matchMedia("(pointer:fine)").matches){
 
   animateCursor();
 
-  document.querySelectorAll("a, button").forEach(el => {
-    el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
-    el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+  document.querySelectorAll("a, button").forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      cursor.classList.add("hover");
+    });
+
+    el.addEventListener("mouseleave", () => {
+      cursor.classList.remove("hover");
+    });
   });
 
-  document.querySelectorAll(".tile.product").forEach(el => {
+  document.querySelectorAll(".tile.product").forEach((el) => {
     el.addEventListener("mouseenter", () => {
       cursor.classList.remove("hover");
       cursor.classList.add("product");
@@ -118,6 +126,11 @@ if(cursor && window.matchMedia("(pointer:fine)").matches){
     });
   });
 
-  document.addEventListener("mouseleave", () => cursor.classList.add("hidden"));
-  document.addEventListener("mouseenter", () => cursor.classList.remove("hidden"));
+  document.addEventListener("mouseleave", () => {
+    cursor.classList.add("hidden");
+  });
+
+  document.addEventListener("mouseenter", () => {
+    cursor.classList.remove("hidden");
+  });
 }
