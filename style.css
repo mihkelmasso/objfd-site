@@ -390,9 +390,17 @@ footer{
   top:225vh;
   right:12vw;
   z-index:4;
+
   font-size:20px;
   line-height:1.45;
   color:#222;
+
+  background:rgba(247,247,245,.82);
+  backdrop-filter:blur(10px);
+
+  padding:28px;
+  border-radius:2px;
+}
 }
 
 .info-block{
