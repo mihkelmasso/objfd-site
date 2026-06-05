@@ -3,342 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OBVIOUS</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:#fff;
-  color:#111;
-}
-
-/* HEADER */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:24px 40px;
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(12px);
-  z-index:100;
-}
-
-.logo{
-  font-size:26px;
-  font-weight:600;
-}
-
-nav{
-  display:flex;
-  gap:40px;
-}
-
-nav a{
-  text-decoration:none;
-  color:#666;
-  font-size:15px;
-  transition:0.2s;
-}
-
-nav a:hover{color:#000}
-
-/* DROPDOWN */
-.work{
-  position:relative;
-  padding-bottom:12px;
-}
-
-.work::after{
-  content:"";
-  position:absolute;
-  top:100%;
-  height:16px;
-  width:100%;
-}
-
-.dropdown{
-  position:absolute;
-  top:calc(100% + 6px);
-  left:0;
-  background:#fff;
-  padding:16px 20px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  opacity:0;
-  pointer-events:none;
-  transform:translateY(8px);
-  transition:0.25s cubic-bezier(.2,.6,.2,1);
-  box-shadow:0 20px 60px rgba(0,0,0,0.08);
-}
-
-.work:hover .dropdown,
-.work:focus-within .dropdown{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0);
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  overflow:hidden;
-}
-
-.hero-bg{
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:url("images/project-huum/huum-1.jpg") center/cover no-repeat;
-  filter:brightness(0.75);
-}
-
-.hero-content{
-  position:relative;
-  text-align:center;
-  max-width:900px;
-  padding:0 20px;
-}
-
-.hero h1{
-  font-size:64px;
-  font-weight:500;
-  line-height:1.1;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1.2s ease forwards;
-}
-
-.hero h2{
-  margin-top:20px;
-  font-size:20px;
-  font-weight:400;
-  opacity:0.9;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1.2s ease forwards;
-  animation-delay:0.2s;
-}
-
-.hero p{
-  margin-top:30px;
-  font-size:14px;
-  color:#ddd;
-  line-height:1.6;
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 1.2s ease forwards;
-  animation-delay:0.4s;
-}
-
-/* PROJECTS */
-.projects{
-  padding:120px 40px;
-  column-count:2;
-  column-gap:60px;
-}
-
-.project{
-  break-inside:avoid;
-  margin-bottom:60px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s cubic-bezier(.2,.6,.2,1);
-}
-
-.project.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.project img{
-  width:100%;
-  display:block;
-  transition:transform 0.7s cubic-bezier(.2,.6,.2,1);
-}
-
-.project:hover img{
-  transform:scale(1.05);
-}
-
-.project-info{
-  margin-top:24px;
-}
-
-.project-title{
-  font-weight:600;
-  font-size:18px;
-}
-
-.project-desc{
-  color:#666;
-  margin-top:6px;
-}
-
-/* ABOUT */
-.about{
-  padding:140px 40px;
-  max-width:800px;
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
-}
-
-.about.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* CONTACT */
-footer{
-  padding:100px 40px;
-}
-
-footer h2{
-  font-size:28px;
-  margin-bottom:40px;
-}
-
-input, textarea{
-  width:100%;
-  border:none;
-  border-bottom:1px solid #ddd;
-  padding:14px 0;
-  margin-bottom:24px;
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* MOBILE */
-@media (max-width:900px){
-  .projects{column-count:1}
-  .hero h1{font-size:36px}
-}
-</style>
+<title>OBVIOUS Objects</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-  <div class="logo">OBVIOUS</div>
-
+  <a class="logo" href="index.html">OBVIOUS</a>
   <nav>
-    <div class="work">
-      <a href="#">Work</a>
+    <div class="nav-item">
+      products |
       <div class="dropdown">
-        <a href="work/huum.html">HUUM Heater</a>
-        <a href="#">Desk Lamp</a>
-        <a href="#">Crutches</a>
-        <a href="#">Empyrean</a>
-        <a href="#">Eys</a>
+        <a href="products/obvious-desk.html">obvious desk</a>
+        <a href="products/processing-chair.html">processing chair</a>
+        <a href="products/swan-lamp.html">swan lamp</a>
+        <span>low table</span>
+        <span>wall shelf</span>
+        <span>side object</span>
+        <span>bench</span>
+        <span>console</span>
+        <span>stool</span>
+        <span>lamp object</span>
       </div>
     </div>
-
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="about.html">about |</a>
+    <a href="contact.html">contact</a>
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <h1>Design reduced to its essence</h1>
-    <h2>Product design focused on clarity, function and form.</h2>
-    <p>
-      OBJFD is an AI-empowered product design bureau working in close collaboration with human expertise.<br>
-      We design from real human needs, grounded in practical experience and informed by manufacturing realities.
-    </p>
-  </div>
-</section>
+<main class="gallery">
 
-<!-- PROJECTS -->
-<section class="projects">
+  <a class="tile product t1" href="products/obvious-desk.html" data-speed=".06" data-scale="1">
+    <img src="images/desk/01.jpg" alt="obvious desk">
+    <div class="product-title">obvious desk</div>
+  </a>
 
-  <div class="project">
-    <img src="images/project-huum/huum-1.jpg">
-    <div class="project-info">
-      <div class="project-title">HUUM Heater</div>
-    </div>
+  <a class="tile product t2" href="products/swan-lamp.html" data-speed="-.04" data-scale="1.04">
+    <img src="images/lamp/01.jpg" alt="swan lamp">
+    <div class="product-title">swan lamp</div>
+  </a>
+
+  <div class="tile mood t3" data-speed=".03" data-scale="1">
+    <img src="images/mood/01.jpg" alt="">
   </div>
 
-  <div class="project">
-    <img src="images/project-lamp/desk-lamp-3-01.jpg">
-    <div class="project-info">
-      <div class="project-title">Desk Lamp</div>
-    </div>
+  <a class="tile product t4" href="products/processing-chair.html" data-speed="-.025" data-scale=".96">
+    <img src="images/chair/01.jpg" alt="processing chair">
+    <div class="product-title">processing chair</div>
+  </a>
+
+  <div class="tile mood t5" data-speed=".04" data-scale="1.06">
+    <img src="images/mood/02.jpg" alt="">
   </div>
 
-  <div class="project">
-    <img src="images/crutches/c-1.png">
-    <div class="project-info">
-      <div class="project-title">Crutches</div>
-    </div>
+  <div class="tile mood t6" data-speed="-.05" data-scale=".95">
+    <img src="images/mood/03.jpg" alt="">
   </div>
 
-  <div class="project">
-    <img src="images/empyrean/e-1.png">
-    <div class="project-info">
-      <div class="project-title">Empyrean</div>
-    </div>
-  </div>
+  <a class="tile product t7" href="products/obvious-desk.html" data-speed=".025" data-scale="1">
+    <img src="images/desk/02.png" alt="obvious desk">
+    <div class="product-title">obvious desk</div>
+  </a>
 
-  <div class="project">
-    <img src="images/eys/eys-1.png">
-    <div class="project-info">
-      <div class="project-title">Eys</div>
-    </div>
-  </div>
+</main>
 
-</section>
+<footer>© OBVIOUS</footer>
 
-<!-- ABOUT -->
-<section id="about" class="about">
-  <h2>About</h2>
-  <p>
-    OBVIOUS is a product design studio focused on clarity, reduction and essential form.
-  </p>
-</section>
-
-<!-- CONTACT -->
-<footer id="contact">
-  <h2>Start a project</h2>
-  <input placeholder="Name">
-  <input placeholder="Email">
-  <textarea placeholder="Project description"></textarea>
-</footer>
-
-<script>
-const elements = document.querySelectorAll('.project, .about');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-}, {threshold:0.2});
-
-elements.forEach(el => observer.observe(el));
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
