@@ -315,3 +315,144 @@ footer{
     opacity:0;
   }
 }
+/* EXHIBITION PRODUCT PAGE */
+
+.exhibition-page{
+  position:relative;
+  min-height:360vh;
+  padding:0 8vw 30vh;
+  overflow:hidden;
+}
+
+.motion-item{
+  position:absolute;
+  will-change:transform;
+}
+
+.exhibit-title{
+  top:20vh;
+  left:10vw;
+  z-index:4;
+}
+
+.exhibit-title h1{
+  font-size:84px;
+  font-weight:400;
+  letter-spacing:-.045em;
+  line-height:.95;
+}
+
+.exhibit-title p{
+  margin-top:24px;
+  font-size:18px;
+  color:#333;
+}
+
+.exhibit-image img{
+  width:100%;
+  display:block;
+}
+
+.image-large{
+  width:58vw;
+  top:62vh;
+  right:5vw;
+  z-index:1;
+}
+
+.description-block{
+  width:36vw;
+  top:118vh;
+  left:12vw;
+  z-index:3;
+  font-size:28px;
+  line-height:1.3;
+  letter-spacing:-.02em;
+}
+
+.image-medium{
+  width:38vw;
+  top:175vh;
+  left:28vw;
+  z-index:2;
+}
+
+.note-block{
+  width:28vw;
+  top:225vh;
+  right:12vw;
+  z-index:4;
+  font-size:20px;
+  line-height:1.45;
+  color:#222;
+}
+
+.info-block{
+  width:44vw;
+  top:285vh;
+  left:10vw;
+  z-index:5;
+  background:rgba(247,247,245,.78);
+  backdrop-filter:blur(10px);
+  padding:40px;
+}
+
+.info-block h2{
+  font-size:28px;
+  font-weight:400;
+  margin-bottom:34px;
+}
+
+.info-row{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  border-bottom:1px solid rgba(0,0,0,.18);
+  padding:16px 0;
+  font-size:15px;
+}
+
+.info-row span:first-child{
+  color:#777;
+}
+
+.info-block form{
+  margin-top:46px;
+}
+
+@media(max-width:900px){
+  .exhibition-page{
+    min-height:auto;
+    padding:140px 24px 80px;
+    display:flex;
+    flex-direction:column;
+    gap:48px;
+    overflow:visible;
+  }
+
+  .motion-item{
+    position:relative;
+    top:auto!important;
+    left:auto!important;
+    right:auto!important;
+    width:100%!important;
+    transform:none!important;
+  }
+
+  .exhibit-title h1{
+    font-size:48px;
+  }
+
+  .description-block{
+    font-size:22px;
+  }
+
+  .info-block{
+    padding:28px;
+  }
+
+  .info-row{
+    flex-direction:column;
+    gap:6px;
+  }
+}
