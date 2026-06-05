@@ -1,8 +1,9 @@
 const header = document.querySelector("header");
 const floatingItems = document.querySelectorAll(".tile");
+const exhibitItems = document.querySelectorAll(".motion-item");
 const cursor = document.querySelector(".cursor");
 
-/* HEADER + FLOATING GALLERY */
+/* HEADER + FLOATING HOME GALLERY */
 function updateMotion() {
   const scroll = window.scrollY;
 
@@ -16,7 +17,6 @@ function updateMotion() {
     const phase = index * 0.9;
 
     let depth = 1;
-
     if (index % 3 === 0) depth = 1.65;
     if (index % 3 === 1) depth = 1.0;
     if (index % 3 === 2) depth = 0.55;
@@ -58,10 +58,39 @@ function updateMotion() {
     item.style.transform =
       `translate3d(${x}px, ${y}px, 0) scale(${scale}) rotate(${rotate}deg)`;
   });
+
+  /* PRODUCT PAGE EXHIBITION MOTION */
+  exhibitItems.forEach((item, index) => {
+    const rect = item.getBoundingClientRect();
+    const center = rect.top + rect.height / 2;
+    const viewportCenter = window.innerHeight / 2;
+    const distance = center - viewportCenter;
+
+    const phase = index * 1.15;
+    const depth = index % 3 === 0 ? 1.25 : index % 3 === 1 ? 0.85 : 1.05;
+
+    const x =
+      Math.sin(scroll * 0.0016 + phase) * 90 * depth -
+      distance * 0.035 * depth;
+
+    const y =
+      Math.cos(scroll * 0.0013 + phase) * 60 * depth +
+      distance * 0.018 * depth;
+
+    const scale =
+      1 + Math.sin(scroll * 0.0014 + phase) * 0.055 * depth;
+
+    const rotate =
+      Math.sin(scroll * 0.001 + phase) * 0.8 * depth;
+
+    item.style.transform =
+      `translate3d(${x}px, ${y}px, 0) scale(${scale}) rotate(${rotate}deg)`;
+  });
 }
 
 window.addEventListener("scroll", updateMotion, { passive: true });
 window.addEventListener("load", updateMotion);
+window.addEventListener("resize", updateMotion);
 
 
 /* INERTIA DONUT CURSOR */
@@ -82,8 +111,8 @@ if (cursor && window.matchMedia("(pointer:fine)").matches) {
   });
 
   function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.4;
-    cursorY += (mouseY - cursorY) * 0.4;
+    cursorX += (mouseX - cursorX) * 0.22;
+    cursorY += (mouseY - cursorY) * 0.22;
 
     const dx = cursorX - prevX;
     const dy = cursorY - prevY;
@@ -115,7 +144,7 @@ if (cursor && window.matchMedia("(pointer:fine)").matches) {
     });
   });
 
-  document.querySelectorAll(".tile.product").forEach((el) => {
+  document.querySelectorAll(".tile.product, .motion-link").forEach((el) => {
     el.addEventListener("mouseenter", () => {
       cursor.classList.remove("hover");
       cursor.classList.add("product");
